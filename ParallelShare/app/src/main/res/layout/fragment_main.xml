@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.anandbibek.parallelshare.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <include layout="@layout/post_layout" />
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@id/bottom_bar"
+        android:layout_height="0.1dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#555"
+        android:layout_alignTop="@+id/plus_toggle">
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/image_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/pic"
+        android:clickable="true"
+        android:onClick="selectImage"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/twitter_toggle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/twitter_bw"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+    </ImageView>
+
+
+    <ImageView
+        android:id="@+id/fb_toggle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/fb_bw"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/twitter_toggle"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/plus_toggle"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/plus_bw"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/fb_toggle"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/plus_toggle"
+        android:padding="5dp"
+        android:layout_below="@+id/scroll_view"
+        android:enabled="false"
+        android:lines="1">
+
+    </TextView>
+
+
+</RelativeLayout>
