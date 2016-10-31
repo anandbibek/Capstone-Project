@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.android.gms.ads.MobileAds;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity  implements DraftFragment.Communicator  {
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity  implements DraftFragment.Co
     MainActivityFragment activityFragment;
     DraftFragment draftFragment;
     static final int SELECT_PHOTO = 101;
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity  implements DraftFragment.Co
                     .replace(R.id.fragment_second, draftFragment, DRAFTFRAGMENT)
                     .commit();
         }
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         MobileAds.initialize(getApplicationContext(), getString(R.string.app_ad_id));
     }
 
@@ -93,6 +97,13 @@ public class MainActivity extends AppCompatActivity  implements DraftFragment.Co
         Intent photoPicker = new Intent(Intent.ACTION_PICK);
         photoPicker.setType("image/*");
         startActivityForResult(photoPicker, SELECT_PHOTO);
+
+        //Analytics custom event logging
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "image_button");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Image Selector");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
     @Override
