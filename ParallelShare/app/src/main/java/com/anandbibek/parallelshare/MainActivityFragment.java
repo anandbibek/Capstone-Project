@@ -49,6 +49,8 @@ import com.facebook.share.model.ShareContent;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -203,6 +205,16 @@ public class MainActivityFragment extends Fragment {
         if(savedInstanceState!=null){
             setImage(Uri.parse(savedInstanceState.getString(SAVED_FILE_PATH)), false);
         }
+
+        //For ads
+        AdView mAdView = (AdView) view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                //Always display test ads on emulator
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                //Specify device id by checking logcat to get test ads on mobiles
+                .addTestDevice(getString(R.string.device_id))
+                .build();
+        mAdView.loadAd(adRequest);
 
         return view;
     }

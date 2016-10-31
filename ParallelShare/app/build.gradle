@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 24
@@ -30,6 +31,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
+    compile 'com.google.firebase:firebase-ads:9.8.0'
     compile group: 'com.facebook.android', name: 'facebook-android-sdk', version: '4.16.1'
     compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.5'
     testCompile 'junit:junit:4.12'

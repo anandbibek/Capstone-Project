@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity  implements DraftFragment.Communicator  {
 
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity  implements DraftFragment.Co
                     .replace(R.id.fragment_second, draftFragment, DRAFTFRAGMENT)
                     .commit();
         }
+        MobileAds.initialize(getApplicationContext(), getString(R.string.app_ad_id));
     }
 
     @Override
