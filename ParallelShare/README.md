@@ -19,7 +19,7 @@ TWITTER
 7. Declare the consumer_key and consumer_secret in gradle.properties file.
 TwitterKey="xxxxxx"
 TwitterSecret="xxxxx"
-#in your home folder /.gradle/gradle.properties (create gradle.properties if it does not exist)
+in your home folder /.gradle/gradle.properties (create gradle.properties if it does not exist)
 
 8. Specify the callback host and scheme in strings.xml file.
 	callback url is of the form scheme://host (Example oauth://myapp)
