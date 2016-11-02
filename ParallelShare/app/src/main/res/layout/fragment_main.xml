@@ -58,11 +58,11 @@
         android:layout_width="wrap_content"
         android:src="@drawable/twitter_bw"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:clickable="true"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/toggle_twitter">
     </ImageView>
 
 
@@ -73,10 +73,10 @@
         android:src="@drawable/fb_bw"
         android:clickable="true"
         android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@id/twitter_toggle"
+        android:padding="5dp"
         android:layout_toLeftOf="@id/twitter_toggle"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:contentDescription="@string/toggle_facebook">
     </ImageView>
 
     <ImageView
@@ -86,10 +86,9 @@
         android:src="@drawable/plus_bw"
         android:clickable="true"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/fb_toggle"
-        android:paddingRight="5dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:layout_toStartOf="@id/fb_toggle"
+        android:padding="5dp"
+        android:layout_toLeftOf="@id/fb_toggle">
     </ImageView>
 
     <TextView
@@ -97,11 +96,12 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/plus_toggle"
+        android:layout_toStartOf="@id/plus_toggle"
         android:padding="5dp"
         android:layout_below="@+id/scroll_view"
         android:enabled="false"
-        android:lines="1">
+        android:lines="1"
+        android:layout_toLeftOf="@id/plus_toggle">
 
     </TextView>
 

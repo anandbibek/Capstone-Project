@@ -12,18 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
         android:paddingTop="16dp"
-        android:paddingRight="16dp">
+        android:paddingEnd="16dp">
 
         <EditText
             android:id="@+id/edit_text"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="@string/enter_your_message"
-            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
             android:paddingTop="16dp"
-            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
             android:background="@null"
             android:paddingBottom="30dp" />
     </android.support.v7.widget.CardView>
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:src="@drawable/delete"
         android:clickable="true"
-        android:layout_alignRight="@id/image_view"
+        android:layout_alignEnd="@id/image_view"
         android:layout_alignTop="@id/image_view"
         android:visibility="gone" />
 
