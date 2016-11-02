@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('../keystore/debug.keystore')
+            storePassword 'android'
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
@@ -11,6 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
@@ -22,10 +31,12 @@ android {
         it.buildConfigField 'String', 'TWITTER_API_KEY', TwitterKey
         it.buildConfigField 'String', 'TWITTER_API_SECRET', TwitterSecret
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -33,7 +44,7 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     compile 'com.google.firebase:firebase-ads:9.8.0'
     compile 'com.google.firebase:firebase-core:9.8.0'
-    compile group: 'com.facebook.android', name: 'facebook-android-sdk', version: '4.16.1'
-    compile group: 'org.twitter4j', name: 'twitter4j-core', version: '4.0.5'
+    compile 'com.facebook.android:facebook-android-sdk:4.16.1'
+    compile 'org.twitter4j:twitter4j-core:4.0.5'
     testCompile 'junit:junit:4.12'
 }
