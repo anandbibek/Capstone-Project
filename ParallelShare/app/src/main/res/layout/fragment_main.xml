@@ -88,7 +88,8 @@
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@id/fb_toggle"
         android:padding="5dp"
-        android:layout_toLeftOf="@id/fb_toggle">
+        android:layout_toLeftOf="@id/fb_toggle"
+        android:contentDescription="@string/toggle_google_plus">
     </ImageView>
 
     <TextView

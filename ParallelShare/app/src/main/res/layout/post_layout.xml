@@ -36,7 +36,8 @@
         android:layout_gravity="center_horizontal"
         android:visibility="invisible"
         android:layout_below="@+id/textCardView"
-        android:layout_margin="16dp" />
+        android:layout_margin="16dp"
+        android:contentDescription="@string/image_to_be_posted" />
 
     <ImageView
         android:id="@+id/delete_btn"
@@ -46,7 +47,9 @@
         android:clickable="true"
         android:layout_alignEnd="@id/image_view"
         android:layout_alignTop="@id/image_view"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_alignRight="@id/image_view"
+        android:contentDescription="@string/remove_image" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

@@ -4,16 +4,16 @@
     <!--Replace with your facebook app id that you created in FB Dev console
     Make sure you add your signing key hash in dev console.
     Details available on FB Dev Console Android Quick start guide-->
-    <string name="facebook_app_id">385155898256497</string>
+    <string name="facebook_app_id">38515589825xxxx</string>
     <!--login protocol is same as fb_app_id, but with fb appended in front-->
-    <string name="fb_login_protocol_scheme">fb385155898256497</string>
+    <string name="fb_login_protocol_scheme">fb38515589825xxxx</string>
 
     <!--!!!!!!!Mandatory!!!!!!!!!-->
     <!--Twitter Consumer key and secret is specified via gradle.properties file-->
     <!--depends on twitter oAuth settings in twitter developer console-->
     <!--callback url is of the form scheme://host specified in twitter console-->
     <string name="twitter_callback_scheme">oauth</string>
-    <string name="twitter_callback_host">shareboard</string>
+    <string name="twitter_callback_host">myapp</string>
 
 
     <!--Replace with your banner ad id and app id from Admob console
@@ -68,5 +68,18 @@
     <string name="select_image">Select image</string>
     <string name="toggle_twitter">Toggle Twitter</string>
     <string name="toggle_facebook">Toggle Facebook</string>
+    <string name="toggle_google_plus">Toggle Google Plus</string>
+    <string name="image_to_be_posted">Image to be posted</string>
+    <string name="remove_image">Remove image</string>
+    <string name="posting_google_plus">Posting to Google plus</string>
+    <string name="get_app">Get app</string>
+    <string name="cancel">Cancel</string>
+    <string name="verification_error">oauth verifying Error</string>
+    <string name="twtter_posting">Twitter : Posting...</string>
+    <string name="twitter_uploading">Twitter : Uploading...</string>
+    <string name="twitter_error">Twitter Update Error</string>
+    <string name="twitter_success">Twitter : Posted successfully</string>
+    <string name="fb_posting">Facebook : Posting...</string>
+    <string name="fb_uploading">Facebook : Uploading...</string>
 
 </resources>

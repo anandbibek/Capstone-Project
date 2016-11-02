@@ -412,7 +412,9 @@ public class MainActivityFragment extends Fragment {
     //Function to choose image
     public void setImage(Uri selectedImage, boolean process) {
 
-        Log.wtf("RESULT",selectedImage+"");
+        if(selectedImage==null || selectedImage.toString().equals(""))
+            return;
+        //Log.wtf("RESULT",selectedImage+"");
         imageView.setVisibility(View.VISIBLE);
         PictureHandler pictureHandler = new PictureHandler();
         //after rotating device, processing has to be delayed to get correct dimensions
@@ -443,21 +445,21 @@ public class MainActivityFragment extends Fragment {
         String status = getString(R.string.gplus_msg) + "Google Plus app is " + (installed? "" : "not ") + "installed on your device.";
         if(installed)
             new android.app.AlertDialog.Builder(getActivity())
-                    .setTitle("Posting to Google plus")
+                    .setTitle(R.string.posting_google_plus)
                     .setMessage(status)
-                    .setPositiveButton("OK", null)
+                    .setPositiveButton(getString(R.string.OK), null)
                     .show();
         else
             new android.app.AlertDialog.Builder(getActivity())
-                    .setTitle("Posting to Google plus")
+                    .setTitle(R.string.posting_google_plus)
                     .setMessage(status)
-                    .setPositiveButton("Get app", new DialogInterface.OnClickListener() {
+                    .setPositiveButton(R.string.get_app, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.plus_link))));
                         }
                     })
-                    .setNegativeButton("Cancel",null)
+                    .setNegativeButton(getString(R.string.cancel),null)
                     .show();
     }
 
@@ -556,7 +558,7 @@ public class MainActivityFragment extends Fragment {
             try {
                 accessToken = twitter.getOAuthAccessToken(requestToken, args[0]);
             }catch (TwitterException e){
-                Log.e("oauth verifying Error", e.getMessage());
+                Log.e(getString(R.string.verification_error), e.getMessage());
                 showLoginErrorDialog();
             }
             return accessToken;
@@ -587,9 +589,9 @@ public class MainActivityFragment extends Fragment {
         protected void onPreExecute() {
             super.onPreExecute();
             if(filePath.equals(""))
-                dialogHandler.startTwit("Twitter : Posting...", getActivity());
+                dialogHandler.startTwit(getString(R.string.twtter_posting), getActivity());
             else
-                dialogHandler.startTwit("Twitter : Uploading...", getActivity());
+                dialogHandler.startTwit(getString(R.string.twitter_uploading), getActivity());
         }
 
         protected String doInBackground(String... args) {
@@ -618,7 +620,7 @@ public class MainActivityFragment extends Fragment {
                     twitter.updateStatus(status);
             } catch (TwitterException e) {
                 // Error in updating status
-                Log.d("Twitter Update Error", e.getMessage());
+                Log.d(getString(R.string.twitter_error), e.getMessage());
                 return  e.getMessage();
             }
             return "OK";
@@ -627,9 +629,9 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected void onPostExecute(final String res) {
             if(res.equals("OK"))
-                dialogHandler.twitDone("Twitter : Posted successfully", getActivity());
+                dialogHandler.twitDone(getString(R.string.twitter_success), getActivity());
             else
-                dialogHandler.twitDone("Twitter : Error. " + res, getActivity());
+                dialogHandler.twitDone(getString(R.string.twitter_error) + res, getActivity());
 
         }
     }
@@ -693,9 +695,9 @@ public class MainActivityFragment extends Fragment {
 
         //show wait dialogue
         if(filePath.equals(""))
-            dialogHandler.startFb("Facebook : Posting...", getActivity());
+            dialogHandler.startFb(getString(R.string.fb_posting), getActivity());
         else
-            dialogHandler.startFb("Facebook : Uploading...", getActivity());
+            dialogHandler.startFb(getString(R.string.fb_uploading), getActivity());
     }
 
     private boolean hasPublishPermission() {

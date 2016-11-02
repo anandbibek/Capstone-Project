@@ -32,4 +32,7 @@ How to build and run
 		https://console.firebase.google.com/
 10. Download the google-services.json and put in /app folder.
 		/ParallelShare/app/google-services.json
+11. Add banner id and app id from admobs into strings.xml.
+	<string name="banner_ad_unit_id">ca-app-pub-5670593069297116/45241506xx</string>
+    <string name="app_ad_id">ca-app-pub-5670593069297116~30474174xx</string>
 11. Analytics will automatically report to firebase project linked with corresponding application id. No need to dynamically set up.
